@@ -3,6 +3,7 @@ import user from './user.json';
 import friends from './friends.json';
 import { Profile } from './components/Profile';
 import { FriendList } from './components/FriendList';
+import { Counter } from './components/Counter';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       stats={user.stats}
     />
     <FriendList friends={friends}/>
+    <Counter></Counter>
     </>
   );
 }
