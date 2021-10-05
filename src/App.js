@@ -4,15 +4,21 @@ import './themes/App.css';
 // import { Profile } from './components/Profile';
 // import { FriendList } from './components/FriendList';
 import { TodoList } from './components/TodoList';
-import { useState } from 'react/cjs/react.development';
+import { useState , useEffect} from 'react/cjs/react.development';
+//import { Context } from './context'
 function App() {
 
-  const [todos,setTodos] = useState([
-    {id: 1, title: 'First todo', completed: true},
-    {id: 2, title: 'Second todo', completed: false}
-  ]);
+  const [todos,setTodos] = useState([]);
 
   const [todoTitle, setTodoTitle] = useState('');
+  useEffect (() => {
+    const raw = localStorage.getItem('todos');
+    setTodos(JSON.parse(raw));
+  },[] )
+
+  useEffect (() => {
+    localStorage.setItem('todos',JSON.stringify(todos))
+  },[todos] )
   
 const addTodo = event => {
   if (event.key === 'Enter') {
@@ -40,16 +46,17 @@ const addTodo = event => {
     <FriendList friends={friends}/>
     <TodoList></TodoList>*/}
    
-    <div>
-      <h1>Todo App</h1>
-      <input 
-        type="text"
-        value={todoTitle}
-        onChange={event => setTodoTitle(event.target.value)}
-        onKeyPress={addTodo}
-      />
-      <TodoList todos={todos}></TodoList>
-    </div>
+      <div>
+        <h1>Todo App</h1>
+        <input 
+          type="text"
+          value={todoTitle}
+          onChange={event => setTodoTitle(event.target.value)}
+          onKeyPress={addTodo}
+        />
+        <TodoList todos={todos}></TodoList>
+      </div>
+
     </> 
   );
 }
