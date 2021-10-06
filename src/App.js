@@ -1,21 +1,23 @@
 import './themes/App.css';
-import user from './user.json';
-import friends from './friends.json';
-import { Profile } from './components/Profile';
-import { FriendList } from './components/FriendList';
+
+import { useEffect, useState } from 'react/cjs/react.development';
 
 function App() {
+  const [type,setType] = useState('users');
+
+  useEffect (() => {
+    console.log("type",type);
+  },[type])
   return (
-    <>
-    <Profile 
-      name={user.name} 
-      tag={user.tag} 
-      location={user.location} 
-      avatar={user.avatar} 
-      stats={user.stats}
-    />
-    <FriendList friends={friends}/>
-    </>
+
+    <div>
+      <h1>Ресурс:{type}</h1>
+
+      <button onClick={() => {setType('users')}}>Users</button>
+      <button onClick={() => {setType('todo');}}>Todo</button>
+      <button onClick={() => {setType('posts')}}>Posts</button>
+
+    </div>
   );
 }
 
