@@ -44,6 +44,41 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 2px solid rgb(139, 139, 139);
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.block-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+}
+
+input {
+
+  width: 50%;
+  height: 20px;
+  border-radius: 3px;
+  border: 2px solid rgb(139, 139, 139);
+}
+
+.input-1 {
+  margin: 20px 0 20px 0;
+}
+.input-2 {
+  margin: 0px 0 10px 0;
+}
+
+.btn-submit {
+  background-color: rgb(1, 128, 160);
+  height: 30px;
+  border:none ;
+  border-radius: 5px;
+  width: 50%;
+  color: #fff;
 }
 
 
