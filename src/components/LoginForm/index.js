@@ -9,7 +9,7 @@ export const LoginForm = () => {
         },
         validationSchema: Yup.object({
           password: Yup.string()
-            .min(5, 'Must be 5 characters or less')
+            .min(5,'Must be 5 characters or less')
             .required('Required'),
           email: Yup.string().email('Invalid email address').required('Required'),
         }),
@@ -20,7 +20,8 @@ export const LoginForm = () => {
     return (
         <form className="block-form" onSubmit={formik.handleSubmit}>
             <label> Email</label>
-            <input
+            <input 
+                className={formik.touched.email && formik.errors.email ? 'error' : ''}
                 id="email"
                 name="email"
                 type="email"
@@ -33,6 +34,7 @@ export const LoginForm = () => {
             ) : null}
             <label> Password</label>
             <input
+                className={formik.touched.password && formik.errors.password ? 'error' : ''}
                 id="password"
                 name="password"
                 type="password"

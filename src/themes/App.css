@@ -82,9 +82,9 @@ input {
   color: #fff;
 }
 
-
-
-
+.error {
+  border: 2px solid red;
+}
 
 
 

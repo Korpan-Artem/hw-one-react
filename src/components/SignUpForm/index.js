@@ -25,6 +25,7 @@ export const SignUpForm = () => {
         <form className="block-form" onSubmit={formik.handleSubmit}>
             <label> Name</label>
             <input
+                className={formik.touched.name && formik.errors.name ? 'error' : ''}
                 id="name"
                 name="name"
                 type="name"
@@ -37,6 +38,7 @@ export const SignUpForm = () => {
             ) : null}
             <label> Email</label>
             <input
+                className={formik.touched.email && formik.errors.email ? 'error' : ''}
                 id="email"
                 name="email"
                 type="email"
@@ -49,6 +51,7 @@ export const SignUpForm = () => {
             ) : null}
             <label> Password</label>
             <input
+                className={formik.touched.password && formik.errors.password ? 'error' : ''}
                 id="password"
                 name="password"
                 type="password"
