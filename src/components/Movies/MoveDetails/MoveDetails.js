@@ -15,19 +15,30 @@ export const MoveDetails = ({match}) => {
     console.log('move',move);
     return (
         <>
-            <div className="container-details">
-                <div className="image-detail">
-                    <img src={`https://image.tmdb.org/t/p/w300/${move.poster_path}`} alt={move.title}/> 
+            <div 
+                className="container-details" 
+                style={{backgroundImage: `url(https://image.tmdb.org/t/p/w500/${move.backdrop_path})`,  
+                backgroundPosition: 'center',
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat',
+                width: '80%',
+                height: '80%'}}
+            >
+                <div className="blur"></div>
+                <div className="image-block">
+                    <img className="image-detail" src={`https://image.tmdb.org/t/p/w300/${move.poster_path}`} alt={move.title}/> 
                 </div>
                 <div className="block-details">
                     <h2>{move.title}</h2>
-                    <p>{move.release_date}</p>
-                    <div className="progress-details">
-                        <p className="vote">{move.vote_average}</p>
-                        <CircularProgress  variant="determinate" color="primary" value={vote}/>
+                    <p className="date-details">{move.release_date}</p>
+                    <div className="">
+                        <p className="vote-details">{vote}%</p>
+                        <CircularProgress className="progress-details"  variant="determinate" color="primary" value={vote}/>
+                       
                     </div>
+                    <span className="user-score">User Score</span>
                     <h3>Overview</h3>
-                    {move && move.overview && <p>{move.overview}</p>}
+                    {move && move.overview && <p className="overview-details">{move.overview}</p>}
                 </div>
             </div>
            

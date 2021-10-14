@@ -11,7 +11,7 @@ export const MoveList = ({history}) => {
     return (
         <ul className="container-blocks">
         {response && response.map(({id,title,poster_path,release_date,vote_average}) => (
-            <MoveItem history={history} key={id} title={title} id={id} poster_path={poster_path} release_date={release_date} vote_average={vote_average}/>
+            <MoveItem history={history} key={id} title={title} id={id} poster_path={poster_path} release_date={release_date} vote_average={vote_average }/>
         ))} 
         </ul>
     )

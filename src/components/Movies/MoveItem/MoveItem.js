@@ -7,7 +7,7 @@ export const MoveItem = ({title,id,history, poster_path,release_date,vote_averag
             <li  className="block-card" onClick={()=> history.push(`/${id}`)}>
                 <div className="image">
                     <div className="progress">
-                        <p className="vote">{vote_average}</p>
+                        <p className="vote">{vote}%</p>
                         <CircularProgress  variant="determinate" color="primary" value={vote}/>
                     </div>
                     
@@ -15,7 +15,7 @@ export const MoveItem = ({title,id,history, poster_path,release_date,vote_averag
                 </div>
                 <div className="title">
                     <h2 className="item-title">{title}</h2>
-                    <p>{release_date}</p>
+                    <p className="date-item">{release_date}</p>
                 </div>
                 </li>
         </>
