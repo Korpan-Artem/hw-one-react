@@ -1,20 +1,23 @@
 import './themes/App.css';
-import user from './user.json';
-import friends from './friends.json';
-import { Profile } from './components/Profile';
-import { FriendList } from './components/FriendList';
+import { BrowserRouter as Router,Route,Switch} from 'react-router-dom';
+import { MovieDetailsPage } from './pages/MovieDetailsPage';
+import { MoviePage } from './pages/MoviePage';
+import { NotFoundPages } from './pages/NotFoundPages';
+
+
+
 
 function App() {
   return (
     <>
-    <Profile 
-      name={user.name} 
-      tag={user.tag} 
-      location={user.location} 
-      avatar={user.avatar} 
-      stats={user.stats}
-    />
-    <FriendList friends={friends}/>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={MoviePage}/>
+        <Route exact path="/:id" component={MovieDetailsPage}/>
+        <Route component={NotFoundPages}/>
+      </Switch>
+    </Router >
+
     </>
   );
 }
